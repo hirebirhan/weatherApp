@@ -3,8 +3,16 @@
     <span>Weather info</span>
     <span class="example-spacer"></span>
     <!-- <mat-icon>person</mat-icon> -->
-    <span class="material-icons">
-      person
-      </span>
+
+    <div fxLayout="row wrap" fxLayoutGap="10px">
+      <a class="link" routerLink="/home">Home</a>
+      <a class="link" routerLink="/about">About</a>
+      <a class="link" routerLink="/contact">contact us</a>
+    </div>
   </mat-toolbar-row>
 </mat-toolbar>
+
+<div>
+  <router-outlet></router-outlet>
+</div>
+

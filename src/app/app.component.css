@@ -1,3 +1,14 @@
 .example-spacer {
     flex: 1 1 auto;
 }  
+
+.container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .link{
+    color: white;
+     text-decoration: none;
+      font-size: 16px
+  }
