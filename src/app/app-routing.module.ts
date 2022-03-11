@@ -11,7 +11,8 @@ const routes: Routes = [
   { path: 'home/:id', component: HomeComponent },
   { path: 'about', component: AboutComponent },
   { path: 'contact', component: ContactUsComponent },
-  { path: '**', component: Eroor404Component }
+  { path: 'admin', loadChildren: () => import('./admin/admin.module').then(module => module.AdminModule)},
+  { path: '**', component: Eroor404Component },   
 ];
 
 @NgModule({

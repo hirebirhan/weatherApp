@@ -28,9 +28,7 @@ import { Eroor404Component } from './components/eroor404/eroor404.component';
     BrowserAnimationsModule,
     MatIconModule,
     MatToolbarModule,
-    FlexLayoutModule
-
-  
+    FlexLayoutModule,
   ],
   exports:[],
   providers: [AppService],
