@@ -13,6 +13,7 @@ import { HomeComponent } from './components/home/home.component';
 import { AboutComponent } from './components/about/about.component';
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
 import { Eroor404Component } from './components/eroor404/eroor404.component';
+import { LocasionComponent } from './locasion/locasion.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { Eroor404Component } from './components/eroor404/eroor404.component';
     HomeComponent,
     AboutComponent,
     ContactUsComponent,
-    Eroor404Component
+    Eroor404Component,
+    LocasionComponent
   ],
   imports: [
     BrowserModule,
