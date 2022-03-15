@@ -7,12 +7,10 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AppService {
-private userUrl: string ='/assets/data/userDetails.json';
- 
+  private readonly userUrl: string ='/assets/data/userDetails.json';
   constructor(private https: HttpClient) { }
 
-
-   getUseds(): Observable<UserData[]> {
+   public getUseds(): Observable<UserData[]> {
     return this.https.get<UserData[]>(this.userUrl)
    }
 

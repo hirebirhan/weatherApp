@@ -9,16 +9,18 @@ import { UserData } from 'src/app/user';
 })
 export class ReactComponent implements OnInit {
 
-public userDetail:any  ;
+public userDetail:UserData[]=[] ;
+public names:string[] = ["Gech","brook", "maru"];
+public ages:number[] = [30,30, 30];
+
+userStatus:'active'|'inactive'='active'
 
   constructor(private appService: AppService) { }
 
   ngOnInit(): void {
-    this.appService.getUseds().subscribe( data => {
-      console.log(data);
-      
-      this.userDetail = data});
-    
+    this.userStatus="active";
+    this.appService.getUseds().subscribe( (data:UserData[]) => {      
+    this.userDetail = data});
   }
 
 }

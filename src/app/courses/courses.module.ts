@@ -3,11 +3,12 @@ import { CommonModule } from '@angular/common';
 import { AngularComponent } from './angular/angular.component';
 import { ReactComponent } from './react/react.component';
 import { RouterModule, Routes } from '@angular/router';
+import { AdminGuard } from '../admin/AdminGuard';
 
 const routes: Routes = [
   { path: "", component: AngularComponent},
-  { path: "angular", component: AngularComponent},
-  { path: "react",component: ReactComponent},  
+  { path: "angular", component: AngularComponent, canActivate:[AdminGuard]},
+  { path: "react",component: ReactComponent,canActivate:[AdminGuard]},  
 ]
 
 @NgModule({
@@ -16,6 +17,7 @@ const routes: Routes = [
     ReactComponent
   ],
   exports: [RouterModule],
+  providers:[AdminGuard],
   imports: [
     CommonModule,
     RouterModule.forChild(routes)
