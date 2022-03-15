@@ -1,12 +1,14 @@
+import { LocasionComponent } from './locasion.component';
 import { Routes, RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DashboardComponent } from '../admin/dashboard/dashboard.component';
 import { UsersComponent } from '../admin/users/users.component';
+import { LocationsComponent } from './locations/locations.component';
 
 const routes: Routes = [
   {
-    path: "", component: DashboardComponent
+    path: "", component:LocasionComponent
   },
   {
     path: "dashboard", component: DashboardComponent
@@ -20,7 +22,8 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [
-
+    LocasionComponent,
+    LocationsComponent
   ],
   exports:[RouterModule],
   imports: [
@@ -28,4 +31,4 @@ const routes: Routes = [
     RouterModule.forChild(routes)
   ]
 })
-export class AdminModule { }
+export class LocationModule { }
