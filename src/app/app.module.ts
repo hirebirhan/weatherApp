@@ -13,6 +13,7 @@ import { HomeComponent } from './components/home/home.component';
 import { AboutComponent } from './components/about/about.component';
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
 import { Eroor404Component } from './components/eroor404/eroor404.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { Eroor404Component } from './components/eroor404/eroor404.component';
     AboutComponent,
     ContactUsComponent,
     Eroor404Component
+    
   ],
   imports: [
     BrowserModule,
@@ -29,6 +31,7 @@ import { Eroor404Component } from './components/eroor404/eroor404.component';
     MatIconModule,
     MatToolbarModule,
     FlexLayoutModule,
+    HttpClientModule
   ],
   exports:[],
   providers: [AppService],

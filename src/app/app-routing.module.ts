@@ -12,6 +12,7 @@ const routes: Routes = [
   { path: 'about', component: AboutComponent },
   { path: 'contact', component: ContactUsComponent },
   { path: 'admin', loadChildren: () => import('./admin/admin.module').then(module => module.AdminModule)},
+  { path: 'courses',loadChildren: () => import('./courses/courses.module').then(module => module.CoursesModule)},
   { path: '**', component: Eroor404Component },   
 ];
 
