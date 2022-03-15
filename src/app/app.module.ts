@@ -17,9 +17,6 @@ import { Eroor404Component } from './components/eroor404/eroor404.component';
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
-    AboutComponent,
-    ContactUsComponent,
     Eroor404Component
   ],
   imports: [
@@ -28,7 +25,6 @@ import { Eroor404Component } from './components/eroor404/eroor404.component';
     BrowserAnimationsModule,
     MatIconModule,
     MatToolbarModule,
-    FlexLayoutModule,
   ],
   exports:[],
   providers: [AppService],
