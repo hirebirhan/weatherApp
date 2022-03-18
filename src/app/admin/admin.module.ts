@@ -16,6 +16,8 @@ import { MatMenuModule } from '@angular/material/menu';
 import { Eroor404Component } from '../components/eroor404/eroor404.component';
 import { AdminGuard } from './Admin.guard';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { ParentComponent } from './parent/parent.component';
+import { ChildComponent } from './child/child.component';
 
 const routes: Routes = [
   {
@@ -31,6 +33,9 @@ const routes: Routes = [
         path: "users", component: UsersComponent
       },
       {
+        path: "parent", component: ParentComponent
+      },
+      {
         path: "**", component: Eroor404Component }
     
     ]
@@ -44,7 +49,9 @@ const routes: Routes = [
   declarations: [
     UsersComponent,
     SidebarComponent,
-    DashboardComponent
+    DashboardComponent,
+    ParentComponent,
+    ChildComponent
   ],
   exports: [RouterModule],
   providers:[AdminGuard],
