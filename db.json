@@ -1,0 +1,22 @@
+{
+  "users" : [
+    
+   {
+      "id" :1,
+      "name" :  "Afnin"
+
+   },
+   {
+     "id" : 2,
+     "name" :  "Biruk"
+   },
+   {
+    "id" : 3,
+    "name" :  "Hassen"
+  },
+  {
+    "id" : 4,
+    "name" :  "Maru"
+  }
+  ]
+}

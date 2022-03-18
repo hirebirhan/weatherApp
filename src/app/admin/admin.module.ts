@@ -18,6 +18,8 @@ import { AdminGuard } from './Admin.guard';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ParentComponent } from './parent/parent.component';
 import { ChildComponent } from './child/child.component';
+import { UsersService } from './users.service';
+import { HttpClientModule } from '@angular/common/http';
 
 const routes: Routes = [
   {
@@ -54,7 +56,7 @@ const routes: Routes = [
     ChildComponent
   ],
   exports: [RouterModule],
-  providers:[AdminGuard],
+  providers:[AdminGuard, UsersService],
   imports: [
     CommonModule,
     FlexLayoutModule,
@@ -68,6 +70,6 @@ const routes: Routes = [
     MatGridListModule,
     MatCardModule,
     MatMenuModule
-  ]
+    ]
 })
 export class AdminModule { }

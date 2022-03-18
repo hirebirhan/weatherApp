@@ -16,7 +16,24 @@
           </mat-card-title>
         </mat-card-header>
         <mat-card-content class="dashboard-card-content">
-          <div>Card Content Here</div>
+          <div>
+
+            <h3>All Users</h3>
+            <ul>
+              <li *ngFor="let user of allUser">
+                  {{user.name}}
+                  <button (click)="deleteUser(user)">Delete</button>
+              </li>
+            </ul>
+            <ul>
+              <li *ngFor="let user of users">
+                {{user.id+" "+ user.username}}
+                <button (click)="fetchUser(user.id)">Get user details</button>
+              </li>
+            </ul>
+
+
+          </div>
         </mat-card-content>
       </mat-card>
     </mat-grid-tile>

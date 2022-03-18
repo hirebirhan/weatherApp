@@ -7,6 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Eroor404Component } from './components/eroor404/eroor404.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { Eroor404Component } from './components/eroor404/eroor404.component';
     BrowserAnimationsModule,
     MatIconModule,
     MatToolbarModule,
+    HttpClientModule
   ],
   exports:[],
   providers: [AppService],
