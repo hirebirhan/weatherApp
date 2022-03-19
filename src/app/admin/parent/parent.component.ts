@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MessageService } from '../services/message.service';
 export interface Student {
   fullName: string;
   gender: 'male' | 'female';
@@ -11,6 +12,8 @@ export interface Student {
 })
 
 export class ParentComponent implements OnInit {
+
+  currentMessageValue: string='';
   valueFromParent = 'This is value from parent';
   students: Student[] = [{
     fullName: "Maru abebe",
@@ -25,9 +28,13 @@ export class ParentComponent implements OnInit {
   ];
 
 
-  constructor() { }
+  constructor(private messageService: MessageService) { }
 
   ngOnInit(): void {
+
+    this.messageService.getCurrentMessage().subscribe(res=>{
+      this.currentMessageValue= res;
+    })
     const _student: Student = {
       fullName: 'getachew molla', age: 18, gender: "male"
     };
@@ -38,13 +45,17 @@ export class ParentComponent implements OnInit {
 
   AddNewStudent(Event: Event) {
     this.students.push({
-      gender:'male', age: 35, fullName:"Hassen Ali"
+      gender: 'male', age: 35, fullName: "Hassen Ali"
     })
   }
 
+  updateMessage() {
+    this.messageService.SetMessageValue("This is value from parent component")
+  }
+
   deleteStudent(student: Student) {
-   // this.students.pop(student)
-   this.students= this.students.filter(x=>x.fullName!== student.fullName)
+    // this.students.pop(student)
+    this.students = this.students.filter(x => x.fullName !== student.fullName)
   }
 
 

@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
-import { UsersService } from '../users.service';
 import { User } from 'src/app/interfaces/user';
 import { HttpClient } from '@angular/common/http';
+import { UsersService } from '../services/users.service';
 
 @Component({
   selector: 'app-dashboard',

@@ -1,10 +1,15 @@
 <!-- <app-child [parentValue]='valueFromParent'></app-child> -->
 
 <button mat-button (click)="AddNewStudent($event)">Add student</button>
-
+<button mat-button (click)="updateMessage()">Update message from parent </button>
+<br>
+Current message: {{currentMessageValue}}
 <div style="padding: 20px 20px;" *ngFor="let stdudent of students">
-    <app-child
+    <!-- <app-child
      (deleteStudentEvent)="deleteStudent(stdudent)"
      [student]='stdudent'>
-    </app-child>
+    </app-child> -->
+
 </div>
+
+<app-other></app-other>

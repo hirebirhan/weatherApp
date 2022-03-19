@@ -18,8 +18,9 @@ import { AdminGuard } from './Admin.guard';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ParentComponent } from './parent/parent.component';
 import { ChildComponent } from './child/child.component';
-import { UsersService } from './users.service';
 import { HttpClientModule } from '@angular/common/http';
+import { OtherComponent } from './other/other.component';
+import { UsersService } from './services/users.service';
 
 const routes: Routes = [
   {
@@ -53,7 +54,8 @@ const routes: Routes = [
     SidebarComponent,
     DashboardComponent,
     ParentComponent,
-    ChildComponent
+    ChildComponent,
+    OtherComponent
   ],
   exports: [RouterModule],
   providers:[AdminGuard, UsersService],
