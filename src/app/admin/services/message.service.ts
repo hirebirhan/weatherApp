@@ -5,16 +5,16 @@ import { BehaviorSubject, Subject } from 'rxjs';
   providedIn: 'root'
 })
 export class MessageService {
-
-   message = new BehaviorSubject<string>("This is default value");
+ 
+  message = new BehaviorSubject<string>("This is default value");
   constructor() {
   }
 
-   getCurrentMessage() {
+  getCurrentMessage() {
     return this.message.asObservable();
   }
 
-   SetMessageValue(value: string) {
+  SetMessageValue(value: string) {
     this.message.next(value)
   }
 }

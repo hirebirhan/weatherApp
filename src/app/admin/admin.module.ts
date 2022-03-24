@@ -18,9 +18,10 @@ import { AdminGuard } from './Admin.guard';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ParentComponent } from './parent/parent.component';
 import { ChildComponent } from './child/child.component';
-import { HttpClientModule } from '@angular/common/http';
+import { MatInputModule } from '@angular/material/input';
 import { OtherComponent } from './other/other.component';
 import { UsersService } from './services/users.service';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 const routes: Routes = [
   {
@@ -71,7 +72,10 @@ const routes: Routes = [
     MatListModule,
     MatGridListModule,
     MatCardModule,
-    MatMenuModule
+    MatMenuModule, 
+    FormsModule,
+    ReactiveFormsModule,
+    MatInputModule
     ]
 })
 export class AdminModule { }

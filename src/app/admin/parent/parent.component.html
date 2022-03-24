@@ -3,7 +3,7 @@
 <button mat-button (click)="AddNewStudent($event)">Add student</button>
 <button mat-button (click)="updateMessage()">Update message from parent </button>
 <br>
-Current message: {{currentMessageValue}}
+Current message: {{currentMessageValue|uppercase}}
 <div style="padding: 20px 20px;" *ngFor="let stdudent of students">
     <!-- <app-child
      (deleteStudentEvent)="deleteStudent(stdudent)"
@@ -12,4 +12,12 @@ Current message: {{currentMessageValue}}
 
 </div>
 
-<app-other></app-other>
+<div style="padding-left: 40px;">
+    <form  [formGroup]="sampleForm">
+        <input matInput type="text" formControlName="userName">
+    </form>
+
+    <app-other></app-other>
+</div>
+
+
