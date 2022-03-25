@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Subscription } from 'rxjs';
 import { MessageService } from '../services/message.service';
 export interface Student {
   fullName: string;
@@ -12,10 +13,14 @@ export interface Student {
   styleUrls: ['./parent.component.css']
 })
 
-export class ParentComponent implements OnInit {
+export class ParentComponent implements OnInit, OnChanges, OnDestroy {
 
-  currentMessageValue: string='';
+  currentMessageValue: string = '';
   valueFromParent = 'This is value from parent';
+  valueFromParent2 = 'This is another value from parent';
+
+  subscription: Subscription | undefined;
+
   students: Student[] = [{
     fullName: "Maru abebe",
     age: 50,
@@ -27,26 +32,39 @@ export class ParentComponent implements OnInit {
     gender: "male"
   }
   ];
-  
-  isChecked : boolean = false;
-  
 
-  sampleForm: FormGroup= this.fb.group({
+  isChecked: boolean = false;
+
+
+  sampleForm: FormGroup = this.fb.group({
     userName: []
   });
 
-  constructor(private messageService: MessageService, private fb: FormBuilder) { }
+  constructor(private messageService: MessageService, private fb: FormBuilder) {
+    // console.log("This is from constructor")
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    //  console.log("This is from ngonchanges");
+    // console.log('changes', changes)
+  }
+
+  ResetMessage() {
+    this.valueFromParent = " This is resetted message";
+    this.valueFromParent2 = " This is also new message";
+
+  }
 
   ngOnInit(): void {
-
-
-    this.sampleForm.get("userName")?.valueChanges.subscribe(change=>{
+    // console.log("This is from ngOnit hook");
+    this.sampleForm.get("userName")?.valueChanges.subscribe(change => {
       this.messageService.SetMessageValue(change)
     })
 
-    this.messageService.getCurrentMessage().subscribe(res=>{
-      this.currentMessageValue= res;
+    this.subscription = this.messageService.getCurrentMessage().subscribe(res => {
+      this.currentMessageValue = res;
     })
+
     const _student: Student = {
       fullName: 'getachew molla', age: 18, gender: "male"
     };
@@ -60,8 +78,8 @@ export class ParentComponent implements OnInit {
       gender: 'male', age: 35, fullName: "Hassen Ali"
     })
 
-    /// check event.target.checked  ==  true  
-  // this.isChecked = !event?.target.checked;
+    /// check event.target.checked  ==  true
+    // this.isChecked = !event?.target.checked;
   }
 
   updateMessage() {
@@ -73,5 +91,9 @@ export class ParentComponent implements OnInit {
     this.students = this.students.filter(x => x.fullName !== student.fullName)
   }
 
+
+  ngOnDestroy(): void {
+    this.subscription?.unsubscribe()
+  }
 
 }

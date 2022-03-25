@@ -1,5 +1,7 @@
 <h2>{{ parentValue }}</h2>
 
+<h2>{{ anotherparentValue }}</h2>
+
 <mat-card class="example-card">
   <mat-card-title-group>
     <mat-card-title>{{ student.fullName }}</mat-card-title>
@@ -10,10 +12,10 @@
     />
   </mat-card-title-group>
   <mat-card-content>
-    <p>
-     age: {{ student.age }}
-    </p>
+    <p>age: {{ student.age }}</p>
 
-    <button mat-button (click)="deleteStudent(student)" color="primary">Delete student</button>
+    <button mat-button (click)="deleteStudent(student)" color="primary">
+      Delete student
+    </button>
   </mat-card-content>
 </mat-card>
