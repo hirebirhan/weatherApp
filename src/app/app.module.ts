@@ -1,13 +1,13 @@
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { AppService } from './../app.service';
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
+import { MatIconModule } from '@angular/material/icon';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { BrowserModule } from '@angular/platform-browser';
-import {MatIconModule} from '@angular/material/icon'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AppService } from './../app.service';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Eroor404Component } from './components/eroor404/eroor404.component';
-import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -22,7 +22,7 @@ import { HttpClientModule } from '@angular/common/http';
     MatToolbarModule,
     HttpClientModule
   ],
-  exports:[],
+  exports: [],
   providers: [AppService],
   bootstrap: [AppComponent]
 })

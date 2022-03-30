@@ -1,8 +1,9 @@
-<!-- <app-child
+<app-child
   [anotherparentValue]="valueFromParent2"
   [parentValue]="valueFromParent"
 >
-</app-child> -->
+  <ng-content></ng-content>
+</app-child>
 
 <button mat-button (click)="AddNewStudent($event)">Add student</button>
 <button mat-button (click)="updateMessage()">Update message from parent</button>

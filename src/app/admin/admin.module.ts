@@ -1,37 +1,41 @@
-import { Routes, RouterModule } from '@angular/router';
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { UsersComponent } from './users/users.component';
-import { SidebarComponent } from './sidebar/sidebar.component';
 import { LayoutModule } from '@angular/cdk/layout';
-import { MatToolbarModule } from '@angular/material/toolbar';
+import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
-import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatIconModule } from '@angular/material/icon';
-import { MatListModule } from '@angular/material/list';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatListModule } from '@angular/material/list';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatSelectModule } from '@angular/material/select';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { RouterModule, Routes } from '@angular/router';
 import { Eroor404Component } from '../components/eroor404/eroor404.component';
 import { AdminGuard } from './Admin.guard';
-import { FlexLayoutModule } from '@angular/flex-layout';
-import { ParentComponent } from './parent/parent.component';
 import { ChildComponent } from './child/child.component';
-import { MatInputModule } from '@angular/material/input';
+import { DashboardComponent } from './dashboard/dashboard.component';
 import { OtherComponent } from './other/other.component';
+import { ParentComponent } from './parent/parent.component';
+import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
 import { UsersService } from './services/users.service';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SidebarComponent } from './sidebar/sidebar.component';
+import { UsersComponent } from './users/users.component';
+
+
 
 const routes: Routes = [
   {
-    path:"", redirectTo: 'dashboard', pathMatch:"full"
+    path: "", redirectTo: 'dashboard', pathMatch: "full"
   },
   {
     path: "", component: SidebarComponent,
     children: [
       {
-        path: "dashboard", component: DashboardComponent, canActivate:[AdminGuard]
+        path: "dashboard", component: DashboardComponent, canActivate: [AdminGuard]
       },
       {
         path: "users", component: UsersComponent
@@ -40,8 +44,12 @@ const routes: Routes = [
         path: "parent", component: ParentComponent
       },
       {
-        path: "**", component: Eroor404Component }
-    
+        path: "form", component: ReactiveFormComponent
+      },
+      {
+        path: "**", component: Eroor404Component
+      }
+
     ]
   },
 
@@ -56,10 +64,11 @@ const routes: Routes = [
     DashboardComponent,
     ParentComponent,
     ChildComponent,
-    OtherComponent
+    OtherComponent,
+    ReactiveFormComponent
   ],
   exports: [RouterModule],
-  providers:[AdminGuard, UsersService],
+  providers: [AdminGuard, UsersService],
   imports: [
     CommonModule,
     FlexLayoutModule,
@@ -72,10 +81,11 @@ const routes: Routes = [
     MatListModule,
     MatGridListModule,
     MatCardModule,
-    MatMenuModule, 
+    MatMenuModule,
     FormsModule,
     ReactiveFormsModule,
-    MatInputModule
-    ]
+    MatInputModule,
+    MatSelectModule
+  ]
 })
 export class AdminModule { }

@@ -1,0 +1,71 @@
+<div style="margin: 10px 20px">
+  <form [formGroup]="studentForm" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="outline" style="width: 100%">
+      <mat-label>First name</mat-label>
+      <input matInput formControlName="firstName" placeholder="First name" />
+      <mat-error *ngIf="studentForm.get('firstName')?.hasError('required')"
+        >First name is required</mat-error
+      >
+
+      <mat-error *ngIf="studentForm.get('firstName')?.hasError('minlength')"
+        >First name has to be at least 3 characters long
+      </mat-error>
+
+      <mat-error *ngIf="studentForm.get('firstName')?.hasError('maxlength')"
+        >First name must not be more than 5 characters long
+      </mat-error>
+    </mat-form-field>
+    <br />
+
+    <mat-form-field appearance="outline" style="width: 100%">
+      <mat-label>middle name</mat-label>
+      <input matInput formControlName="middleName" placeholder="Last name" />
+    </mat-form-field>
+    <br />
+
+    <mat-form-field appearance="outline" style="width: 100%">
+      <mat-label>Last name</mat-label>
+      <input matInput formControlName="lastName" placeholder="Last name" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Choose country</mat-label>
+      <mat-select formControlName="country">
+        <mat-option value="">choose country</mat-option>
+        <mat-option *ngFor="let country of countries" [value]="country.id">{{
+          country.name
+        }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <br />
+    <mat-form-field appearance="outline">
+      <mat-label>Choose city</mat-label>
+      <mat-select formControlName="city">
+        <mat-option *ngFor="let city of filterdCities" [value]="city.id">{{
+          city.name
+        }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <form [formGroup]="addressForm">
+      <mat-form-field appearance="outline" style="width: 100%">
+        <mat-label>Tel</mat-label>
+        <input matInput formControlName="tel" placeholder="telephone " />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" style="width: 100%">
+        <mat-label>Phome </mat-label>
+        <input matInput formControlName="phone" placeholder="phone " />
+      </mat-form-field>
+    </form>
+    <br />
+    <button
+      mat-raised-button
+      [disabled]="studentForm.invalid"
+      color="primary"
+      type="submit"
+    >
+      Submit
+    </button>
+  </form>
+</div>
