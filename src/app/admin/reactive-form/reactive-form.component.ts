@@ -71,10 +71,7 @@ export class ReactiveFormComponent implements OnInit {
 
 
     this.studentForm.get('country')?.valueChanges.subscribe(changedCountryId => {
-      console.log("changes", changedCountryId)
-      //filter cities
       this.filterdCities = this.cities.filter(city => city.countryid === changedCountryId)
-
     })
   }
 
